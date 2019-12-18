@@ -1,12 +1,12 @@
 pragma solidity 0.5.7;
-import “https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/ownership/Ownable.sol”;
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/ownership/Ownable.sol";
 pragma experimental ABIEncoderV2;
 
 contract DAGSwap is Ownable {
     mapping (address => string) public mappedAddresses;
     address[] internal keyList;
 
-    function mapAddress(string memory _chxAddress)
+    function mapAddress(string memory _dagAddress)
         public
     {
         address ethAddress = msg.sender;
@@ -14,7 +14,7 @@ contract DAGSwap is Ownable {
         if (!existsInKeyList(ethAddress)){
             keyList.push(ethAddress);
         }
-        mappedAddresses[ethAddress] = _chxAddress;
+        mappedAddresses[ethAddress] = _dagAddress;
     }
 
     function existsInKeyList(address _ethAddress)
